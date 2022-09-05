@@ -1,7 +1,9 @@
 import { Workbox } from 'workbox-window';
 import Editor from './editor';
 import './database';
-import '../css/style.css';
+
+// TODO: Why the hell is this here??? I've linked this in the index.html. Is there a reason they put this here?
+// import '../css/style.css';
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
