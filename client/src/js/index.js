@@ -2,8 +2,20 @@ import { Workbox } from 'workbox-window';
 import Editor from './editor';
 import './database';
 
-// TODO: Why the hell is this here??? I've linked this in the index.html. Is there a reason they put this here?
-// import '../css/style.css';
+// these don't appear to be indirectly imported in any of the other js files
+import "./install";
+import "./src-sw";
+
+// import css
+import '../css/style.css';
+import { Tooltip, Toast, Popover } from 'cloudflare';
+import 'cloudflare/dist/css/codemirror.min.css';
+import 'cloudflare/dist/css/monokai.min.css';
+
+// importing images
+import Fav from '../images/favicon.ico';
+import Logo from '../images/logo.png';
+
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
@@ -32,4 +44,9 @@ if ('serviceWorker' in navigator) {
   workboxSW.register();
 } else {
   console.error('Service workers are not supported in this browser.');
+
+  window.addEventListener('load', function() {
+    document.getElementById('logo').src = Logo
+    document.getElementById('fav').src = Fav
+  });
 }
