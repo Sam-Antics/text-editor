@@ -1,25 +1,38 @@
 {
-  "name": "JATE",
+  "name": "text-editor",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Text Editor PWA Challenge",
+  "main": "index.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\" ",
+    "start": "cd server && node server.js",
+    "server": "cd server nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "concurrently \"cd client && npm install\" \"cd server && npm install\" ",
+    "client": "cd client && npm start",
+    "heroku-prebuild": "npm install --dev"
   },
   "keywords": [],
-  "author": "",
+  "author": "sam-antics",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "if-env": "^1.0.4"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.4"
-  }
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sam-Antics/text-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sam-Antics/text-editor/issues"
+  },
+  "homepage": "https://github.com/Sam-Antics/text-editor#readme"
 }
